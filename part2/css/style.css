@@ -1,0 +1,117 @@
+@import url(stylesheet.css);
+@import url(normalize.css);
+body {
+    font-family: 'Trebuchet MS', Arial, sans-serif;
+}
+
+.header {
+    background: #4A4F56;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 0;
+    color: #EB7E7F;
+}
+
+.header__title {
+    margin-bottom: 5px;
+}
+
+.header__caption {
+    font-size: 24px;
+}
+
+.list {
+    background: #3B3F45;
+    padding: 25px 0 50px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0 auto;
+    max-width: 50vw;
+}
+
+.list__item {
+    height: 50px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    background: #88839E;
+    transition: 0.5s ease;
+    position: relative;
+}
+
+.list__item:nth-child(2n) {
+    background: #7A7593;
+}
+
+.list__item input {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+
+.list__name {
+    color: #F3F8F7;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.list__check {
+    content: '';
+    width: 20px;
+    height: 20px;
+    background: #DEDEDE;
+    border: #B1B1B1;
+    margin-left: 10px;
+    border-radius: 1px;
+}
+
+.list__caption {
+    color: #C9C2C5;
+}
+
+.list__item:hover {
+    border-bottom: 3px solid #fff;
+    border-top: 3px solid #fff;
+    background: #625E77;
+}
+
+input:checked~.list__name {
+    text-decoration: line-through;
+    color: #C9C2C5;
+}
+
+input:checked+.list__check {
+    content: url(../img/check.svg);
+}
+
+input:checked~.list__caption {
+    text-decoration: line-through;
+}
+
+.list__submit {
+    background: #4A4F56;
+    border: none;
+    display: inline-block;
+    width: 100%;
+    margin-top: 20px;
+    height: 50px;
+    color: #EB7E7F;
+    font-size: 24px;
+    transition: 0.5s ease;
+}
+
+.list__submit:hover {
+    background: rgb(45, 48, 53);
+    cursor: pointer;
+}

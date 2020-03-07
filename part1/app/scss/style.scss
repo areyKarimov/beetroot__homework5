@@ -1,0 +1,100 @@
+@import url(stylesheet.css);
+@import url(normalize.css);
+@mixin row() {
+    font-size: 0;
+    margin: 0 auto;
+    max-width: 1100px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+@mixin col($col, $sum, $gap, $align: top, $first: false, $last: false) {
+    width: percentage($col/$sum);
+    vertical-align: $align;
+    font-size: 16px;
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 0 $gap;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: 'Proxima Nova Rg';
+}
+
+h3 {
+    margin: 0;
+    padding: 0;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+.block {
+    @include row;
+    &__item {
+        @include col(1, 3, 60px);
+        &:last-child svg {
+            margin-bottom: 4px;
+        }
+    }
+    &__icon {
+        border: 1px solid #1275b9;
+        height: 63px;
+        width: 63px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: 0.5s ease;
+        margin-bottom: 20px;
+        & svg {
+            fill: #1275b9;
+            transition: 0.5s ease;
+        }
+        &:hover {
+            background: #1275b9;
+            & svg {
+                fill: #fff;
+            }
+        }
+    }
+    &__title {
+        margin-bottom: 20px;
+    }
+    &__text {
+        text-align: center;
+        color: #9d9d9d;
+    }
+}
+
+@media screen and (max-width: 905px) {
+    .block__item {
+        @include col(1, 2, 60px);
+        margin-bottom: 20px;
+        &:last-child {
+            width: 100%;
+        }
+    }
+}
+
+@media screen and (max-width: 615px) {
+    .block__item {
+        @include col(1, 1, 60px);
+        margin-bottom: 20px;
+    }
+}
